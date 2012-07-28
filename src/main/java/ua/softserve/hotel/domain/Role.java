@@ -21,12 +21,12 @@ public class Role implements Serializable {
     @Column(name = "DESCRIPTION")
     private String description;
 
-    public String getDiscription() {
+    public String getDescription() {
         return description;
     }
 
-    public void setDiscription(String discription) {
-        this.description = discription;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public Long getId() {

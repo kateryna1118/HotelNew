@@ -14,6 +14,24 @@
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="location" value="classpath:db.properties" />
 	</bean>
+	
+	
+	<bean id="sessionFactory"
+	  class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+	    <property name="dataSource">
+	       <ref bean="dataSource" />
+	    </property>
+	    <property name="packagesToScan" value="ua.softserve.hotel" />
+	    <property name="hibernateProperties">
+	        <props>
+	    	    <prop key="hibernate.dialect">${db.dialect}</prop>
+	    	    <prop key="hibernate.hbm2ddl.auto">create</prop>
+	    	    <!-- uncomment this for first time run-->
+	    	    <!--prop key="hibernate.hbm2ddl.auto">create</prop -->
+	    	    <prop key="hibernate.show_sql">true</prop>
+	        </props>
+	    </property>
+	</bean>
 
 	<bean id="entityManagerFactory"
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
